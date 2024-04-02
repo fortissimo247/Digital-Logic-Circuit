@@ -1,7 +1,7 @@
 module parity(
-  input a
-  input b
-  input c
+  input a,
+  input b,
+  input c,
   output p
 );
 
