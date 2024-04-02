@@ -1,4 +1,4 @@
-module parity(
+module parity (
   input a,
   input b,
   input c,
