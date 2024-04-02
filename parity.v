@@ -7,4 +7,4 @@ module parity(
 
   assign p = ~a&~b&c | ~a&b&~c | a&~b&~c | a&b&c
 
-    endmodule
+endmodule
