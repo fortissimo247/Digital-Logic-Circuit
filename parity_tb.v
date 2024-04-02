@@ -9,7 +9,7 @@ reg c;
 wire p;
 
 // 테스트 대상 모듈 인스턴스화
-parity instance_and (
+parity instance_parity (
     .a(a), 
     .b(b), 
     .c(c),
