@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module AND_tb;
+module parity_tb;
 
 // 입력 및 출력 신호 선언
 reg a;
@@ -48,7 +48,7 @@ end
 
 // 결과 모니터링
 initial begin
-  $monitor("시간=%t, 입력 a=%b, 입력 b=%b, 입력 c=%b 출력 y=%b", $time, a, b, c, p);
+    $monitor("시간=%t, 입력 a=%b, 입력 b=%b, 입력 c=%b, 출력 y=%b", $time, a, b, c, p);
 end
 
 endmodule
