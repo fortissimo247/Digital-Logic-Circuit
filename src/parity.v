@@ -5,6 +5,6 @@ module parity (
   output p
 );
 
-  assign p = ~a&~b&c | ~a&b&~c | a&~b&~c | a&b&c;
+  assign p = a ^ b ^ c;
 
 endmodule
