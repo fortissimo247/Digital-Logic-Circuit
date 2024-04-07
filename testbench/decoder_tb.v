@@ -1,4 +1,4 @@
-// This code is made with claude.ai
+// This code is made with Claude
 
 // 디코더 테스트 벤치
 module decoder_2to4_tb;
