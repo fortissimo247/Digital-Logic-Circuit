@@ -1,4 +1,4 @@
-// This code is made with claude.ai
+// This code is made with Claude
 
 // 멀티플렉서 테스트 벤치
 module mux_4to1_tb;
