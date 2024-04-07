@@ -1,4 +1,4 @@
-// This code is made with claude.ai
+// This code is made with Claude
 
 // 2-to-4 디코더 모듈
 module decoder_2to4 (
