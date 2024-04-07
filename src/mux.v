@@ -1,4 +1,4 @@
-// This code is made with claude.ai
+// This code is made with Claude
 
 // 4-to-1 멀티플렉서 모듈
 module mux_4to1 (
