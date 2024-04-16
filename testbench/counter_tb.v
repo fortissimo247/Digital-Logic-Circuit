@@ -24,9 +24,13 @@ module BinaryCounter_tb;
 
     // 리셋 신호 생성
     initial begin
-        rst = 0; // 초기에 리셋 신호 비활성화
-        #10; // 10ns 대기
-        rst = 1; // 리셋 활성화
+        rst = 0;
+        #20;
+        rst = 1;
+        #20;
+        rst = 0;
+        #20;
+        rst = 1;
     end
 
     // 카운터 값 출력
@@ -36,7 +40,7 @@ module BinaryCounter_tb;
 
     // 시뮬레이션 종료
     initial begin
-        #50; // 시뮬레이션 시간
+        #60; // 시뮬레이션 시간
         $finish; // 시뮬레이션 종료
     end
 endmodule
