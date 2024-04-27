@@ -108,4 +108,8 @@ module cpu(
       3'b010: imm = {6'b0, inst[9:0]};
       3'b011: imm = {{3{inst[9]}}, inst[9:0]};
       3'b100: imm = {{8{inst[7]}}, inst[7:0]};
-      default:
+      default: imm = 16'bx;
+    endcase
+  end
+
+endmodule
