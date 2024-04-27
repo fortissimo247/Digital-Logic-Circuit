@@ -1,3 +1,5 @@
+// This code is made with Claude
+
 module full_adder(
   input a,
   input b,
