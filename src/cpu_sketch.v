@@ -1,12 +1,15 @@
-// This code is made with Claude
-
-// 프로그램 메모리
+// 프로그램 메모리 (예제 프로그램 코드 포함)
 module prog_mem(
   input [5:0] addr,
   output [15:0] inst
 );
   reg [15:0] mem [0:63];
-  initial $readmemh("prog.mem", mem);
+  initial begin
+    mem[0] = 16'h0004; // addi r1, r0, 4
+    mem[1] = 16'h0105; // addi r2, r0, 5
+    mem[2] = 16'h2021; // add  r3, r1, r2
+    mem[3] = 16'h0000; // nop
+  end
   assign inst = mem[addr];
 endmodule
 
@@ -103,11 +106,11 @@ module cpu(
 
   always @(*) begin
     case (inst[11:9])
-      3'b000: imm = {13'b0, inst[2:0]};
-      3'b001: imm = {10'b0, inst[5:0]};
-      3'b010: imm = {6'b0, inst[9:0]};
-      3'b011: imm = {{3{inst[9]}}, inst[9:0]};
-      3'b100: imm = {{8{inst[7]}}, inst[7:0]};
+      3'b000: imm = {13'b0, inst[2:0]}; // I-type (addi)
+      3'b001: imm = {10'b0, inst[5:0]}; // I-type (lw, sw)
+      3'b010: imm = {6'b0, inst[9:0]};  // S-type (beq)
+      3'b011: imm = {{3{inst[9]}}, inst[9:0]};  // I-type (signed)
+      3'b100: imm = {{8{inst[7]}}, inst[7:0]};  // I-type (signed)
       default: imm = 16'bx;
     endcase
   end
