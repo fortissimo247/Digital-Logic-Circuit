@@ -89,32 +89,32 @@ initial begin
     
     // Test Case 1: Addition 3 + 2
     A_tb = 4'd3; B_tb = 4'd2; Sel_tb = 1'b0;  // Sel 0 for addition
-    #10 $display("Time: %t, ADD: A=%h, B=%h, Sel=%b, Result=%h, Carry_Borrow=%b, Overflow=%b", $time, A_tb, B_tb, Sel_tb, Result_tb, Carry_tb, Overflow_tb);
+    #10 $display("Time: %t, ADD: A=%d, B=%d, Sel=%b, Result=%d, Carry_Borrow=%b, Overflow=%b", $time, A_tb, B_tb, Sel_tb, Result_tb, Carry_tb, Overflow_tb);
     #10;  // Wait 10 ns
     
     // Test Case 2: Subtraction 3 - 2
     A_tb = 4'd3; B_tb = 4'd2; Sel_tb = 1'b1;  // Sel 1 for subtraction
-    #10 $display("Time: %t, ADD: A=%h, B=%h, Sel=%b, Result=%h, Carry_Borrow=%b, Overflow=%b", $time, A_tb, B_tb, Sel_tb, Result_tb, Carry_tb, Overflow_tb);
+    #10 $display("Time: %t, ADD: A=%d, B=%d, Sel=%b, Result=%d, Carry_Borrow=%b, Overflow=%b", $time, A_tb, B_tb, Sel_tb, Result_tb, Carry_tb, Overflow_tb);
     #10;  // Wait 10 ns
     
     // Test Case 3: Addition 7 + 5
     A_tb = 4'd7; B_tb = 4'd5; Sel_tb = 1'b0;
-    #10 $display("Time: %t, ADD: A=%h, B=%h, Sel=%b, Result=%h, Carry_Borrow=%b, Overflow=%b", $time, A_tb, B_tb, Sel_tb, Result_tb, Carry_tb, Overflow_tb);
+    #10 $display("Time: %t, ADD: A=%d, B=%d, Sel=%b, Result=%d, Carry_Borrow=%b, Overflow=%b", $time, A_tb, B_tb, Sel_tb, Result_tb, Carry_tb, Overflow_tb);
     #10;
     
     // Test Case 4: Subtraction 10 - 8
     A_tb = 4'd10; B_tb = 4'd8; Sel_tb = 1'b1;
-    #10 $display("Time: %t, ADD: A=%h, B=%h, Sel=%b, Result=%h, Carry_Borrow=%b, Overflow=%b", $time, A_tb, B_tb, Sel_tb, Result_tb, Carry_tb, Overflow_tb);
+    #10 $display("Time: %t, ADD: A=%d, B=%d, Sel=%b, Result=%d, Carry_Borrow=%b, Overflow=%b", $time, A_tb, B_tb, Sel_tb, Result_tb, Carry_tb, Overflow_tb);
     #10;
     
     // Test Case 5: Testing Overflow (Addition)
     A_tb = 4'd8; B_tb = 4'd9; Sel_tb = 1'b0; // 8 + 9 = 17 (overflow)
-    #10 $display("Time: %t, ADD: A=%h, B=%h, Sel=%b, Result=%h, Carry_Borrow=%b, Overflow=%b", $time, A_tb, B_tb, Sel_tb, Result_tb, Carry_tb, Overflow_tb);
+    #10 $display("Time: %t, ADD: A=%d, B=%d, Sel=%b, Result=%d, Carry_Borrow=%b, Overflow=%b", $time, A_tb, B_tb, Sel_tb, Result_tb, Carry_tb, Overflow_tb);
     #10;
     
     // Test Case 6: Testing Underflow (Subtraction)
     A_tb = 4'd5; B_tb = 4'd6; Sel_tb = 1'b1; // 5 - 6 = -1 (underflow)
-    #10 $display("Time: %t, ADD: A=%h, B=%h, Sel=%b, Result=%h, Carry_Borrow=%b, Overflow=%b", $time, A_tb, B_tb, Sel_tb, Result_tb, Carry_tb, Overflow_tb);
+    #10 $display("Time: %t, ADD: A=%d, B=%d, Sel=%b, Result=%d, Carry_Borrow=%b, Overflow=%b", $time, A_tb, B_tb, Sel_tb, Result_tb, Carry_tb, Overflow_tb);
     #10;
   
     $finish;
