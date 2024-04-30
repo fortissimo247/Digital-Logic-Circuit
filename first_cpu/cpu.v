@@ -33,7 +33,13 @@ always @(posedge clk or posedge reset) begin
     end
 end
 
-// Decode stage: Use decoded opcode
+// Decode stage: Decode opcode
+always @(*) begin
+    // Pass opcode to decoder module
+    decoder_inst.opcode = opcode;
+end
+
+// Execute stage: Perform operation based on control signal
 always @(posedge clk or posedge reset) begin
     if (reset) begin
         // Reset state
