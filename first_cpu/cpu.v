@@ -34,39 +34,19 @@ always @(posedge clk or posedge reset) begin
 end
 
 // Decode stage: Use decoded opcode
-always @(*) begin
-    // Pass decoded opcode to control the operation
-    case(decoded_opcode)
-        2'b00: begin
-                    // Perform addition
-                    // You need to modify this part accordingly
-               end
-        2'b01: begin
-                    // Perform subtraction
-                    // You need to modify this part accordingly
-               end
-        2'b10: begin
-                    // Perform multiplication
-                    // You need to modify this part accordingly
-               end
-        2'b11: begin
-                    // Perform division
-                    // You need to modify this part accordingly
-               end
-        default: begin
-                    // Default: no operation
-               end
-    endcase
-end
-
-// Execute stage: Perform operation based on control signal
 always @(posedge clk or posedge reset) begin
     if (reset) begin
         // Reset state
         result <= 8'b0;
     end else begin
         // Execute operation based on control signal
-        // You need to modify this part accordingly
+        case(control_signal)
+            4'b0001: result <= operand1 + operand2; // Addition
+            4'b0010: result <= operand1 - operand2; // Subtraction
+            4'b0100: result <= operand1 * operand2; // Multiplication
+            4'b1000: result <= operand1 / operand2; // Division
+            default: result <= 8'b0; // Default: no operation
+        endcase
     end
 end
 
