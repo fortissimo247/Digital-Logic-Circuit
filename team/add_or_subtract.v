@@ -85,7 +85,7 @@ ArithmeticUnit uut (
 
 initial begin
     A_tb = 0; B_tb = 0; Sel_tb = 0;
-    #100;
+    #10;
     
     // Test Case 1: Addition 3 + 2
     A_tb = 4'd3; B_tb = 4'd2; Sel_tb = 1'b0;  // Sel 0 for addition
