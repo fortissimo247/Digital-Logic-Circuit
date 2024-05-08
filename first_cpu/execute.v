@@ -6,7 +6,7 @@ module execute(clk, reset, op_code, src_addr1, src_addr2, dest_addr, result);
     wire [7:0] operand1, operand2, add_result;
     reg [7:0] reg_file [3:0]; // 4개의 레지스터
 
-    Adder adder_unit(.a(operand1), .b(operand2), .result(add_result));
+    Adder adder_unit(.a(operand1), .b(operand2), .sum(add_result));
 
     always @(posedge clk or posedge reset) begin
         if (reset) begin
