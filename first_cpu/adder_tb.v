@@ -1,5 +1,3 @@
-// This code is made with Claude
-
 `timescale 1ns/1ps
 
 module ripple_carry_adder_tb();
