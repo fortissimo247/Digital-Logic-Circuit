@@ -1,6 +1,6 @@
 module operand1_memory(
     input [3:0] operand1_addr,
-    output reg [15:0] operand2_value
+    output reg [15:0] operand1_value
 );
 
     // 16비트 데이터 값들 (랜덤으로 지정)
