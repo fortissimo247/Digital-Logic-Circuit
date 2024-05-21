@@ -1,16 +1,15 @@
 module cpu(
     input clk,
     input reset,
-    output [7:0] inst_out,
-    output [7:0] result_out
+    output reg [7:0] inst_out, // reg 타입으로 선언
+    output reg [7:0] result_out // reg 타입으로 선언
 );
 
 wire [7:0] inst, result;
 wire [1:0] op, src1_addr, src2_addr, dest_addr;
 wire [7:0] src1_value, src2_value;
 
-fetch fetch_unit(
-    .clk(clk),
+inst_memory fetch_unit(
     .inst(inst)
 );
 
@@ -48,13 +47,8 @@ result_memory result_mem(
     .dest_addr(dest_addr),
     .result(result)
 );
-    
-initial begin
-    inst_out = 0;
-    result_out = 0;
-end
 
-assign inst_out = inst;
-assign result_out = result;
+assign inst_out = inst; // 프로시저 할당문 대신 연속 할당문 사용
+assign result_out = result; // 프로시저 할당문 대신 연속 할당문 사용
 
 endmodule
