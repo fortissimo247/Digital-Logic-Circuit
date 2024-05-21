@@ -1,8 +1,8 @@
 module cpu(
     input clk,
     input reset,
-    output reg [7:0] inst_out, // reg 타입으로 선언
-    output reg [7:0] result_out // reg 타입으로 선언
+    output [7:0] inst_out, // reg 타입으로 선언
+    output [7:0] mem_data // reg 타입으로 선언
 );
 
 wire [7:0] inst, result;
@@ -46,9 +46,10 @@ result_memory result_mem(
     .clk(clk),
     .dest_addr(dest_addr),
     .result(result)
+    .mem_data(mem_data(
 );
 
 assign inst_out = inst; // 프로시저 할당문 대신 연속 할당문 사용
-assign result_out = result; // 프로시저 할당문 대신 연속 할당문 사용
+assign mem_data_out = mem_data; // 프로시저 할당문 대신 연속 할당문 사용
 
 endmodule
