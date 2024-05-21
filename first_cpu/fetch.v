@@ -4,7 +4,14 @@ module fetch(
 );
 
 inst_memory inst_mem(
-    .inst(inst)
 );
+
+reg [2:0] pc;
+initial pc = 0;
+
+always @(posedge clk) begin
+    inst <= inst_mem.inst;
+    pc <= pc + 1;
+end
 
 endmodule
