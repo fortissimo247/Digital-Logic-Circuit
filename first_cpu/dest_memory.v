@@ -1,4 +1,4 @@
-module dest_memory(
+module result_memory(
     input clk,
     input [1:0] dest_addr,
     input [7:0] result,
