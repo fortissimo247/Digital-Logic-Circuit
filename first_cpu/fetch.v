@@ -11,7 +11,8 @@ initial pc = 0;
 
 always @(posedge clk) begin
     inst <= inst_mem.inst;
-    pc <= pc + 1;
+    if (pc == 7) pc <= 0; // 마지막 instruction 이후에는 pc를 0으로 리셋
+    else pc <= pc + 1;
 end
 
 endmodule
