@@ -12,10 +12,11 @@ always @(posedge clk) begin
         result <= 0;
     end else begin
         case (op)
-            2'b00: result <= src1_value + src2_value; // Addition
-            2'b01: result <= src1_value - src2_value; // Subtraction
-            2'b10: result <= src1_value * src2_value; // Multiplication
-            2'b11: result <= src1_value / src2_value; // Division
+            2'b00: result <= src1_value + src2_value;
+            2'b01: result <= src1_value - src2_value;
+            2'b10: result <= src1_value * src2_value;
+            2'b11: result <= src1_value / src2_value;
+            default: result <= 77; // 유효하지 않은 opcode인 경우 77 할당
         endcase
     end
 end
