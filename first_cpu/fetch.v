@@ -1,9 +1,19 @@
-module fetch(clk, reset, instruction_out);
-    input clk, reset;
-    output reg [7:0] instruction_out;
+module fetch(
+    input clk,
+    output reg [7:0] inst
+);
 
-    always @(posedge clk or posedge reset) begin
-        if (reset) instruction_out <= 8'b0;
-        else instruction_out <= instruction_out + 1; // 단순 예제를 위해 명령어를 순차적으로 증가
-    end
+reg [7:0] mem [7:0];
+reg [2:0] pc;
+
+initial begin
+    $readmemb("inst_memory.mem", mem);
+    pc = 0;
+end
+
+always @(posedge clk) begin
+    inst <= mem[pc];
+    pc <= pc + 1;
+end
+
 endmodule
