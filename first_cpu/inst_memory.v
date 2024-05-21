@@ -1,5 +1,4 @@
 module inst_memory(
-    input clk,
     output reg [7:0] inst
 );
 
@@ -16,11 +15,11 @@ initial begin
     mem[7] = 8'b11110000;
 end
 
-reg [2:0] pc;
-
-always @(posedge clk) begin
-    inst <= mem[pc];
-    pc <= pc + 1;
+always @(*) begin
+    inst = mem[pc];
 end
+
+reg [2:0] pc;
+initial pc = 0;
 
 endmodule
