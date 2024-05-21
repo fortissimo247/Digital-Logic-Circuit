@@ -1,33 +1,50 @@
-`timescale 1ns/1ps
+module cpu(
+    input clk,
+    input reset
+);
 
-module cpu_tb;
-
-reg clk, reset;
 wire [7:0] inst;
 wire [1:0] op, src1_addr, src2_addr, dest_addr;
 wire [7:0] src1_value, src2_value, result;
 
-cpu dut(
+fetch fetch_unit(
     .clk(clk),
-    .reset(reset),
+    .inst(inst)
+);
+
+decode decode_unit(
     .inst(inst),
     .op(op),
     .src1_addr(src1_addr),
     .src2_addr(src2_addr),
-    .dest_addr(dest_addr),
+    .dest_addr(dest_addr)
+);
+
+src1_memory src1_mem(
+    .clk(clk),
+    .src1_addr(src1_addr),
+    .src1_value(src1_value)
+);
+
+src2_memory src2_mem(
+    .clk(clk),
+    .src2_addr(src2_addr),
+    .src2_value(src2_value)
+);
+
+execute execute_unit(
+    .clk(clk),
+    .reset(reset),
+    .op(op),
     .src1_value(src1_value),
     .src2_value(src2_value),
     .result(result)
 );
 
-initial begin
-    clk = 0;
-    reset = 1;
-    #10 reset = 0;
-    #10 reset = 1;
-    #100 $finish;
-end
-
-always #50 clk = ~clk;
+result_memory result_mem(
+    .clk(clk),
+    .dest_addr(dest_addr),
+    .result(result)
+);
 
 endmodule
