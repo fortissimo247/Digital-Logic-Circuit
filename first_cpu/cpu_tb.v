@@ -3,13 +3,13 @@
 module cpu_tb;
 
 reg clk, reset;
-wire [7:0] inst_out, result_out;
+wire [7:0] inst_out, mem_data_out;
 
 cpu dut(
     .clk(clk),
     .reset(reset),
     .inst_out(inst_out),
-    .result_out(result_out)
+    .mem_data_out(mem_data_out)
 );
 
 initial begin
