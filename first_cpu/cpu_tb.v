@@ -20,6 +20,6 @@ initial begin
     #100 $finish;
 end
 
-always #50 clk = ~clk;
+always #5 clk = ~clk;
 
 endmodule
