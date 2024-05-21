@@ -16,7 +16,6 @@ initial begin
     clk = 0;
     reset = 1;
     #10 reset = 0;
-    #10 reset = 1;
     #100 $finish;
 end
 
