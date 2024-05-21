@@ -45,7 +45,7 @@ execute execute_unit(
 result_memory result_mem(
     .clk(clk),
     .dest_addr(dest_addr),
-    .result(result)
+    .result(result),
     .mem_data(mem_data(
 );
 
