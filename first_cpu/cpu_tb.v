@@ -3,7 +3,7 @@
 module cpu_tb;
 
 reg clk, reset;
-wire [7:0] inst_out, result_out;
+reg [7:0] inst_out, result_out;
 
 cpu dut(
     .clk(clk),
