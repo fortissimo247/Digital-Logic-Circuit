@@ -1,33 +1,50 @@
-module cpu(clk, reset);
-    input clk, reset;
+module cpu(
+    input clk,
+    input reset
+);
 
-    wire [7:0] instruction;
-    wire [1:0] op_code;
-    wire [1:0] src_addr1, src_addr2, dest_addr;
-    wire [7:0] result;
+wire [7:0] inst;
+wire [1:0] op, src1_addr, src2_addr, dest_addr;
+wire [7:0] src1_value, src2_value, result;
 
-    fetch fetch_unit(
-        .clk(clk),
-        .reset(reset),
-        .instruction_out(instruction)
-    );
+fetch fetch_unit(
+    .clk(clk),
+    .inst(inst)
+);
 
-    decode decode_unit(
-        .instruction(instruction),
-        .op_code(op_code),
-        .src_addr1(src_addr1),
-        .src_addr2(src_addr2),
-        .dest_addr(dest_addr)
-    );
+decode decode_unit(
+    .inst(inst),
+    .op(op),
+    .src1_addr(src1_addr),
+    .src2_addr(src2_addr),
+    .dest_addr(dest_addr)
+);
 
-    execute execute_unit(
-        .clk(clk),
-        .reset(reset),
-        .op_code(op_code),
-        .src_addr1(src_addr1),
-        .src_addr2(src_addr2),
-        .dest_addr(dest_addr),
-        .result(result)
-    );
+src1_memory src1_mem(
+    .clk(clk),
+    .src1_addr(src1_addr),
+    .src1_value(src1_value)
+);
+
+src2_memory src2_mem(
+    .clk(clk),
+    .src2_addr(src2_addr),
+    .src2_value(src2_value)
+);
+
+execute execute_unit(
+    .clk(clk),
+    .reset(reset),
+    .op(op),
+    .src1_value(src1_value),
+    .src2_value(src2_value),
+    .result(result)
+);
+
+result_memory result_mem(
+    .clk(clk),
+    .dest_addr(dest_addr),
+    .result(result)
+);
 
 endmodule
