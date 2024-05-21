@@ -48,6 +48,11 @@ result_memory result_mem(
     .dest_addr(dest_addr),
     .result(result)
 );
+    
+initial begin
+    inst_out = 0;
+    result_out = 0;
+end
 
 assign inst_out = inst;
 assign result_out = result;
