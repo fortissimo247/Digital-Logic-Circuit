@@ -1,6 +1,8 @@
 module cpu(
     input clk,
     input reset
+    output [7:0] inst_out,
+    output [7:0] result_out
 );
 
 wire [7:0] inst;
@@ -46,5 +48,8 @@ result_memory result_mem(
     .dest_addr(dest_addr),
     .result(result)
 );
+
+assign inst_out = inst;
+assign result_out = result;
 
 endmodule
