@@ -1,13 +1,13 @@
 module cpu(
     input clk,
-    input reset
+    input reset,
     output [7:0] inst_out,
     output [7:0] result_out
 );
 
-wire [7:0] inst;
+wire [7:0] inst, result;
 wire [1:0] op, src1_addr, src2_addr, dest_addr;
-wire [7:0] src1_value, src2_value, result;
+wire [7:0] src1_value, src2_value;
 
 fetch fetch_unit(
     .clk(clk),
