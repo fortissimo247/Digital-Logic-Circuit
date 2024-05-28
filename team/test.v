@@ -43,7 +43,7 @@ endmodule
 
 
 
-module result_memory(
+module data_memory(
     input clk,               // 클럭 신호
     input [3:0] addr,        // 4비트 주소 입력
     input [15:0] data_in,    // 16비트 데이터 입력
@@ -90,8 +90,8 @@ module testbench;
     .result(alu_result)
   );
 
-  // result_memory instance
-  result_memory my_memory (
+  // data_memory instance
+  data_memory my_memory (
     .clk(clk),
     .addr(addr),
     .data_in(data_in),

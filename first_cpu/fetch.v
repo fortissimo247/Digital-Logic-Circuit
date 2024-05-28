@@ -1,12 +1,12 @@
 module fetch(
     input clk,
-    output reg [7:0] inst
+    output reg [15:0] inst
 );
 
 reg [2:0] pc;
 initial pc = 0;
 
-wire [7:0] inst_mem_out;
+wire [15:0] inst_mem_out;
 
 inst_memory inst_mem(
 	.clk(clk),
